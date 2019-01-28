@@ -1,6 +1,5 @@
 body{
     cursor: default;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(231,236,239,1) 100%);
 }
 
 #start-container{
@@ -8,6 +7,7 @@ body{
     width: 100vw;
     height: 100vh;
     justify-content: center;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(231,236,239,1) 100%);
 }
 
 #text-container{
@@ -21,13 +21,14 @@ body{
     opacity: 0;
 }
 
-#particles-js{
+#background_css3{
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     z-index: -1;
     display: none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(231,236,239,1) 100%);
 }
 
 .contacts-section{
@@ -53,9 +54,10 @@ body{
     color: #272932;
     text-align: center;
     transition: all 0.35s ease-out;
+    outline: none;
 }
 
-.icons-block a:hover{
+.icons-block a:hover, .icons-block a:focus{
     transition: all 0.1s ease-in;
     transform: scale(1.3);
 }
@@ -64,42 +66,23 @@ body{
     width: inherit;
 }
 
-.vk-icon:hover{
-    color: #4d7198;
-}
-
-.twitter-icon:hover{
-    color: #1da1f2;
-}
-
-.instagram-icon:hover{
-    color: #8a3ab9;
-}
-
-.github-icon:hover{
-    color: #492778;
-}
-
-.email-icon:hover{
-    color: #d6493b;
-}
-
-@media all and (max-width: 640px){
+@media all and (max-width: 420px){
 
     .icons-block{
-        flex-direction: column;
         width: 100vw;
         max-width: 100vw;
         border-bottom: none;
         padding: unset;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .icons-block a{
         width: calc(100vh/7);
-        margin: 10px 20px;
-    }
-    .icons-block a:hover{
-        transform: unset;
+        margin: 20px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(231,236,239,1) 100%);
+        padding: 10px 20px;
+        border-radius: 20px;
     }
 
 }
