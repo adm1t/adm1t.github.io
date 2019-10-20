@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('load', function(){
 
     var vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', vh + 'px');
@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function(){
     var tl = new TimelineMax();
     tl
         .to(title, 0, {y: 75})
-        .staggerFromTo(letters, 0.5, {backgroundColor:"black"}, {opacity:1, backgroundColor:"unset",  ease: Expo. easeOut}, 0.5)
+        .staggerFromTo(letters, 0.5, {backgroundColor: "black"}, {opacity: 1, backgroundColor: "unset",  ease: Expo.easeOut}, 0.5)
         .to(title, 0.75, {y: 0, ease: Power2.easeOut})
-        .to(delimeter, 0.75, {width: '100%', ease: Power2.easeInOut}, '-=0.25')
+        .to(delimeter, 0.75, {x: 0, ease: Power2.easeInOut}, '-=0.25')
         .fromTo(contactsSection, 0.75, {y: 50}, {y: 0, opacity: 1, ease: Power2.easeOut})
 });
