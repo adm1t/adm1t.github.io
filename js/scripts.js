@@ -1,23 +1,25 @@
-window.addEventListener('load', function(){
+if ( /*@cc_on!@*/ false || !!document.documentMode) document.documentElement.classList.add('ie');
 
-    var vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', vh + 'px');
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", vh + "px");
 
-    window.addEventListener('resize', function(){
-        vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', vh + 'px');
-    });
+window.addEventListener("resize", function() {
+    vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", vh + "px");
+});
 
-    var title = document.querySelectorAll(".title");
-    var letters = document.querySelectorAll(".title__letter");
-    var delimeter = document.querySelectorAll(".title__delimeter");
-    var contactsSection = document.querySelector(".contacts");
+window.addEventListener("load", function() {
 
-    var tl = new TimelineMax();
+    const wrapper = document.querySelector(".main-wrapper");
+    const title = document.querySelectorAll(".title");
+    const letters = document.querySelectorAll(".title__letter");
+    const delimeter = document.querySelectorAll(".title__delimeter");
+    const contactLinks = document.querySelectorAll(".contacts__link");
+
+    const tl = gsap.timeline();
     tl
-        .to(title, 0, {y: 75})
-        .staggerFromTo(letters, 0.5, {backgroundColor: "black"}, {opacity: 1, backgroundColor: "unset",  ease: Expo.easeOut}, 0.5)
-        .to(title, 0.75, {y: 0, ease: Power2.easeOut})
-        .to(delimeter, 0.75, {x: 0, ease: Power2.easeInOut}, '-=0.25')
-        .fromTo(contactsSection, 0.75, {y: 50}, {y: 0, opacity: 1, ease: Power2.easeOut})
+        .to(wrapper, 0, { opacity: 1 })
+        .fromTo(letters, 0.8, { opacity: 0, backgroundColor: "black" }, { opacity: 1, backgroundColor: "transparent", ease: Expo.easeOut, stagger: 0.4 }, 0.5)
+        .fromTo(delimeter, 2.6, { xPercent: -100 }, { xPercent: 0, ease: Expo.easeOut }, "-=0.5")
+        .fromTo(contactLinks, 2, { y: 50, opacity: 0 }, { y: 0, opacity: 1, ease: Expo.easeOut, stagger: 0.1 }, "-=2.3")
 });
